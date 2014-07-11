@@ -15,6 +15,16 @@ if [ ! -e /system/etc/init.d ]; then
 fi;
 mount -o ro,remount /system /system;
 
+#Phantom's On Boot Settings
+[ -e /sdcard/fkSettings/fks2w ] && echo 1 > /sys/android_touch/sweep2wake;
+[ -e /sdcard/fkSettings/fkdt2w ] && echo 1 > /sys/android_touch/doubletap2wake;
+[ -e /sdcard/fkSettings/fkdt2wps ] && echo 2 > /sys/android_touch/doubletap2wake;
+[ -e /sdcard/fkSettings/fks2s ] && echo 1 > /sys/android_touch/s2w_s2s;
+[ -s /sdcard/fkSettings/fkwt ] && cat /sdcard/fkSettings/fkwt > /sys/android_touch/wake_timeout;
+[ -e /sdcard/fkSettings/fkcolor ] && echo 1 > /sys/module/mdss_dsi/parameters/color_preset;
+[ -e /sdcard/fkSettings/fkpwrks ] && echo 1 > /sys/module/qpnp_power_on/parameters/pwrkey_suspend;
+#End Settings
+
 echo 85 1500000:90 1800000:70 > /sys/devices/system/cpu/cpufreq/interactive/target_loads
 echo 20000 1400000:40000 1700000:20000 > /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay
 echo 40000 1700000:80000 > /sys/devices/system/cpu/cpufreq/interactive/min_sample_time
