@@ -21,8 +21,7 @@ mount -o ro,remount /system
 [ -e /sdcard/fkSettings/fks2w ] && echo 1 > /sys/android_touch/sweep2wake;
 [ -e /sdcard/fkSettings/fkdt2w ] && echo 1 > /sys/android_touch/doubletap2wake;
 [ -e /sdcard/fkSettings/fkdt2wps ] && echo 2 > /sys/android_touch/doubletap2wake;
-[ -e /sdcard/fkSettings/fks2s ] && echo 2 > 
-/sys/android_touch/sweep2sleep;
+[ -e /sdcard/fkSettings/fks2s ] && echo 2 > /sys/android_touch/sweep2sleep;
 [ -s /sdcard/fkSettings/fkwt ] && cat /sdcard/fkSettings/fkwt > /sys/android_touch/wake_timeout;
 [ -e /sdcard/fkSettings/fkcolor ] && echo 1 > /sys/module/mdss_dsi/parameters/color_preset;
 [ -e /sdcard/fkSettings/fkpwrks ] && echo 1 > /sys/module/qpnp_power_on/parameters/pwrkey_suspend;
